@@ -53,7 +53,7 @@ $("#header").append(formattedLWelcomeMsg);
 
 // $("#header").append(formattedLSkillsStart);
 $("#header").append(HTMLskillsStart);
-$("#header").append(formattedHTMLskillsStart);
+$("#header").append(formattedLHTMLskills);
 
 
 // $("#main").append(formattedWorkEmployer);
@@ -69,7 +69,50 @@ $("#header").append(formattedHTMLskillsStart);
 // var formattedWorkYears = HTMLworkEmployer.replace("%data%",work.years);
 // var formattedWorkCity = HTMLworkEmployer.replace("%data%",work.city);
 
+/**
+ * Education
+ *
+ *
+**/
 
+var education = {
+    "schools": [
+        {
+            "name": "Elgin Community College",
+            "location": "Elgin, IL",
+            "degree": "AS",
+            "major": ["Network","System Admistration"],
+            "dates": "2004-2006",
+            "url": "elgin.edu"
+            
+        },
+        {
+            "name": "Northern Illinois University",
+            "city": "DeKalb, IL",
+            "degree": "BA",
+            "major":["Network Security","Infracture Admistration"],
+            "dates": "2006-2010",
+            "url": "niu.edu"
+        }
+    ],
+    "onlineCourses": [
+        {
+            "title": "Nanodegrees",
+            "school": "Udacity",
+            "dates": "2016",
+            "url": "Udacity.com"
+        },
+    ],
+    "display":""
+}
+
+education.display = function() {
+    for //(project in projects.projects){
+        (var i = 0; i < education.education.length; i++){
+        $("#projects").append(HTMLprojectStart);
+        }
+}
+education.display()
 
 // Work
 var work = {
@@ -93,6 +136,7 @@ var work = {
 }
 function displaywork (){
     for (job in work.jobs) {
+        //console.count();
         $("#workExperience").append(HTMLworkStart);
 
         // console.log(work.jobs[job].employer);
@@ -137,7 +181,8 @@ var projects = {
 
 
 projects.display = function() {
-    for (var i = 0; i < projects.projects.length; i++){
+    for //(project in projects.projects){
+        (var i = 0; i < projects.projects.length; i++){
         $("#projects").append(HTMLprojectStart);
         //  console.count();
 
@@ -150,83 +195,30 @@ projects.display = function() {
         var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
         $(".project-entry:last").append(formattedDescription);
 
+        // if (projects.projects[i].images.length > 0){
+        //     console.log(projects.projects[i]);
+        //     for (var j = 0; j < projects.projects[i].images.length; j++) {
+        //         var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[i].images[j]);
+        //         $(".project-entry:last").append(formattedImage);
+        //         console.log(projects.projects[i].images[j]);
+        //     };
+        // };
+
+        // old code
+        // if (projects.projects[project].images.length > 0){
+        //     for (image in projects.projects[project].images) {
+        //         var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+        //         $(".project-entry:last").append(formattedImage);
+        //     };
+        // };
+
         var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[i].images);
         $(".project-entry:last").append(formattedImage);
     };
 
 };
 
-projects.display();
-
-/**
- * Education
- *
- *
-**/
-
-var education = {
-    "schools": [
-        {
-            "name": "Elgin Community College",
-            "location": "Elgin, IL",
-            "degree": "AS",
-            "major": ["Networking","System Admistration"],
-            "dates": "2004-2006",
-            "url": "elgin.edu"            
-        },
-        {
-            "name": "Northern Illinois University",
-            "location": "DeKalb, IL",
-            "degree": "BA",
-            "major":["Network Security","Infrastructure Admistration"],
-            "dates": "2006-2010",
-            "url": "niu.edu"
-        }
-    ],
-    "onlineCourses": [
-        {
-            "title": "Nanodegree",
-            "school": "Udacity",
-            "dates": "2016",
-            "url": "https://www.udacity.com/"
-        },
-    ],
-    "display":""
-}
-
-education.display = function() {
-    for (var i = 0; i < education.schools.length; i++){       
-        $("#education").append(HTMLschoolStart);
-
-        var formattedschoolName = HTMLschoolName.replace("%data%", education.schools[i].name);
-        var formattedschoolDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
-        var formattedTitle = formattedschoolName + formattedschoolDegree;
-        $(".education-entry:last").append(formattedTitle); 
-
-        var formattedschoolDates = HTMLschoolDates.replace("%data%", education.schools[i].dates)
-        $(".education-entry:last").append(formattedschoolDates);
-        var formattedschoolLocation = HTMLschoolLocation.replace("%data%", education.schools[i].location)
-        $(".education-entry:last").append(formattedschoolLocation);
-        var formattedschoolMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major)
-        $(".education-entry:last").append(formattedschoolMajor);      
-        };
-    for (var j = 0; j < education.onlineCourses.length; j++){
-        $("#eduaction").append(HTMLonlineClasses);
-        var formattedonlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[j].title);
-
-        var formattedonlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[j].school);
-  
-        var formattedTitle = formattedonlineTitle + formattedonlineSchool;
-        $(".education-entry:last").append(formattedTitle);
-
-        var formattedonlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[j].dates);
-        $(".education-entry:last").append(formattedonlineDates);
-        var formattedonlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[j].url);
-        $(".education-entry:last").append(formattedonlineURL);
-        };
-};
-
-education.display();
+// projects.display();
 
 
 // add back after loop works
