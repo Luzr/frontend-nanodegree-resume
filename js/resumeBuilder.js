@@ -75,7 +75,7 @@ var work = {
     "display":""
 }
 work.display = function(){
-    for (job in work.jobs) { //change to other forEach ( js method) or for in loop 
+    for (job in work.jobs) { //change to other forEach ( js method) or for in loop
         //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
         $("#workExperience").append(HTMLworkStart);
 
@@ -83,14 +83,14 @@ work.display = function(){
 
         var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
         var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].title);
-        var formattedEmployerTitle = formattedEmployer + formattedTitle;   
+        var formattedEmployerTitle = formattedEmployer + formattedTitle;
         $(".work-entry:last").append(formattedEmployerTitle);
 
         var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
         $(".work-entry:last").append(formattedDates)
 
         var formatttedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-        
+
         $(".work-entry:last").append(formatttedDescription);
 
     }
@@ -98,7 +98,7 @@ work.display = function(){
 
 //displaywork();
 
-// Projects 
+// Projects
 
 var projects = {
     "projects": [
@@ -116,7 +116,7 @@ var projects = {
         }
     ,
     ],
-     "display":""    
+     "display":""
 };
 
 
@@ -160,13 +160,13 @@ var education = {
             "degree": "AS",
             "majors": ["Networking","System Admistration"],
             "dates": "2004-2006",
-            "url": "elgin.edu"            
+            "url": "elgin.edu"
         },
         {
             "name": "Northern Illinois University",
             "location": "DeKalb, IL",
             "degree": "BA",
-            "majors":["Network Security","Infrastructure Admistration"], //added an s to "major"
+            "majors":["Network Security","Infrastructure Admistration"],
             "dates": "2007-2011",
             "url": "niu.edu"
         }
@@ -184,27 +184,27 @@ var education = {
 
 education.display = function() {
         //school start
-    for (var i = 0; i < education.schools.length; i++){       
+    for (var i = 0; i < education.schools.length; i++){
         $("#education").append(HTMLschoolStart);
 
         var formattedschoolName = HTMLschoolName.replace("%data%", education.schools[i].name);
         var formattedschoolDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
         var formattedTitle = formattedschoolName + formattedschoolDegree;
-        $(".education-entry:last").append(formattedTitle); 
+        $(".education-entry:last").append(formattedTitle);
 
         var formattedschoolDates = HTMLschoolDates.replace("%data%", education.schools[i].dates);
         $(".education-entry:last").append(formattedschoolDates);
         var formattedschoolLocation = HTMLschoolLocation.replace("%data%", education.schools[i].location);
         $(".education-entry:last").append(formattedschoolLocation);
         var formattedschoolMajor = HTMLschoolMajor.replace("%data%", education.schools[i].majors)
-        $(".education-entry:last").append(formattedschoolMajor);      
+        $(".education-entry:last").append(formattedschoolMajor);
         };
 
     // stopped here
 
          //online school start
-        $("#education").append(HTMLonlineClasses);  // cant get this in the right location
-    for (var j = 0; j < education.onlineCourses.length; j++){          
+         $(".education-entry:last").append(HTMLonlineClasses);
+    for (var j = 0; j < education.onlineCourses.length; j++){
         var formattedonlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[j].title);
         var formattedonlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[j].school);
         var formattedTitle = formattedonlineTitle + formattedonlineSchool;
