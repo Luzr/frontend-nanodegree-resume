@@ -49,9 +49,6 @@ var bio = {
          var formattedHTMLskills = HTMLskills.replace("%data%",bio.skills[i]);
          $("#header:last").append(formattedHTMLskills);
     };
-
-        
-
     }
 };
 
@@ -109,18 +106,18 @@ var projects = {
         "title": "Install Server",
         "dates": "2009",
         "description": "Install a server to work on. Quisque eget dignissim metus. Aenean eget dictum lorem, at elementum magna. Ut vulputate felis id fringilla tristique. Sed aliquet leo vulputate nisl tincidunt volutpat. Quisque nec ornare purus, sed sagittis eros in.",
-        "images": "images/cat1.jpg"
+        "images": ["images/cat1.jpg","images/cat3.jpg"]
         },
         {
         "title": "Updated Domain",
         "dates": "2013",
         "description": "Setup a new domain .Quisque nec ornare purus, sed sagittis eros in. Quisque eget dignissim metus. Aenean eget dictum lorem, at elementum magna. Quisque nec ornare purus, sed sagittis eros in.",
-        "images": ["images/cat2.jpg"] //need to be in array
+        "images": ["images/cat2.jpg","images/cat4.png"]
         }
     ,
     ],
      "display":""    
-}
+};
 
 
 projects.display = function() {
@@ -129,7 +126,7 @@ projects.display = function() {
         //  console.count();
 
         var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
-        $("projects-entry:last").append(formattedTitle);
+        $(".project-entry:last").append(formattedTitle);
         //  console.log(formattedTitle);
 
         var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
@@ -137,11 +134,12 @@ projects.display = function() {
 
         var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
         $(".project-entry:last").append(formattedDescription);
-
-        var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[i].images);
+    for (var j = 0; j < projects.projects[i].images.length; j++ ){
+        var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[i].images[j]);
+    //    console.log(projects.projects[i].images[j])
         $(".project-entry:last").append(formattedImage);
 
-        //add loop for images 
+    }
     };
 
 };
@@ -160,7 +158,7 @@ var education = {
             "name": "Elgin Community College",
             "location": "Elgin, IL",
             "degree": "AS",
-            "major": ["Networking","System Admistration"],
+            "majors": ["Networking","System Admistration"],
             "dates": "2004-2006",
             "url": "elgin.edu"            
         },
@@ -185,6 +183,7 @@ var education = {
 }
 
 education.display = function() {
+        //school start
     for (var i = 0; i < education.schools.length; i++){       
         $("#education").append(HTMLschoolStart);
 
@@ -193,26 +192,23 @@ education.display = function() {
         var formattedTitle = formattedschoolName + formattedschoolDegree;
         $(".education-entry:last").append(formattedTitle); 
 
-        var formattedschoolDates = HTMLschoolDates.replace("%data%", education.schools[i].dates)
+        var formattedschoolDates = HTMLschoolDates.replace("%data%", education.schools[i].dates);
         $(".education-entry:last").append(formattedschoolDates);
-        var formattedschoolLocation = HTMLschoolLocation.replace("%data%", education.schools[i].location)
+        var formattedschoolLocation = HTMLschoolLocation.replace("%data%", education.schools[i].location);
         $(".education-entry:last").append(formattedschoolLocation);
-        var formattedschoolMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major)
+        var formattedschoolMajor = HTMLschoolMajor.replace("%data%", education.schools[i].majors)
         $(".education-entry:last").append(formattedschoolMajor);      
         };
 
+// stopped here
 
-      $("#education").append(HTMLonlineClasses); //changed
-    for (var j = 0; j < education.onlineCourses.length; j++){
-        $("#education").append(HTMLonlineClasses); //school start insted
-       
+         //online school start
+        $("#education").append(HTMLonlineClasses);  // cant get this in the right location
+    for (var j = 0; j < education.onlineCourses.length; j++){          
         var formattedonlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[j].title);
-
         var formattedonlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[j].school);
-  
         var formattedTitle = formattedonlineTitle + formattedonlineSchool;
         $(".education-entry:last").append(formattedTitle); // last applies to the "this one" - take the last out and see whats up
-
         var formattedonlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[j].dates);
         $(".education-entry:last").append(formattedonlineDates);
         var formattedonlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[j].url);
