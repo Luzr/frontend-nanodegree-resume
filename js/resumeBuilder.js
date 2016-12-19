@@ -167,7 +167,7 @@ var education = {
             "location": "DeKalb, IL",
             "degree": "BA",
             "majors":["Network Security","Infrastructure Admistration"], //added an s to "major"
-            "dates": "2006-2010",
+            "dates": "2007-2011",
             "url": "niu.edu"
         }
     ],
@@ -200,7 +200,7 @@ education.display = function() {
         $(".education-entry:last").append(formattedschoolMajor);      
         };
 
-// stopped here
+    // stopped here
 
          //online school start
         $("#education").append(HTMLonlineClasses);  // cant get this in the right location
@@ -217,7 +217,5 @@ education.display = function() {
 };
 
 education.display();
-
-
 // add back after loop works
 $("#mapDiv").append(googleMap);
