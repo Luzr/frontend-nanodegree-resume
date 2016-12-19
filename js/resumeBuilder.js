@@ -1,8 +1,5 @@
 /**
- *
  * Bio
- *
- *
 **/
 
 var bio = {
@@ -54,7 +51,10 @@ var bio = {
 
 bio.display();
 
-// Work
+/**
+ * Work
+**/
+
 var work = {
     "jobs": [
         {
@@ -103,7 +103,7 @@ var projects = {
         {
         "title": "Updated Domain",
         "dates": "2013",
-        "description": "Setup a new domain .Quisque nec ornare purus, sed sagittis eros in. Quisque eget dignissim metus. Aenean eget dictum lorem, at elementum magna. Quisque nec ornare purus, sed sagittis eros in.",
+        "description": "Setup a new domain. Quisque nec ornare purus, sed sagittis eros in. Quisque eget dignissim metus. Aenean eget dictum lorem, at elementum magna. Quisque nec ornare purus, sed sagittis eros in.",
         "images": ["images/cat2.jpg","images/cat4.png"]
         }
     ],
