@@ -17,6 +17,7 @@ var bio = {
     "display": function() {
         var formattedName = HTMLheaderName.replace("%data%", bio.name);
         var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+
         var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
         var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
         var formattedLTwitter = HTMLtwitter.replace("%data%",bio.contacts.twitter);
@@ -24,15 +25,25 @@ var bio = {
         var formattedLBioPic = HTMLbioPic.replace("%data%",bio.biopic);
         var formattedLWelcomeMsg = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
         var formattedHTMLlocation = HTMLlocation.replace("%data%",bio.contacts.location);
-        $("#header").prepend(formattedName,formattedRole);
-        // Add to the header and footer
-        $("#topContacts, #footerContacts").append(formattedMobile,formattedEmail,formattedLTwitter,formattedLGithub,formattedHTMLlocation);
-        $("#header").append(formattedLBioPic,formattedLWelcomeMsg,HTMLskillsStart);
+
+
+        $("#header").prepend(formattedRole);
+        $("#header").prepend(formattedName);
+        $("#topContacts").append(formattedEmail);
+        $("#topContacts").append(formattedLTwitter);
+        $("#topContacts").append(formattedLGithub);
+        $("#topContacts").append(formattedHTMLlocation);
+
+
+        $("#header").append(formattedLBioPic);
+        $("#header").append(formattedLWelcomeMsg);
+
+        $("#header").append(HTMLskillsStart);
         // for each https://discussions.udacity.com/t/my-education-section-is-not-appearing/196231
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
      for (var i = 0; i < bio.skills.length; i++){
          var formattedHTMLskills = HTMLskills.replace("%data%",bio.skills[i]);
-         $("#header:last").append(formattedHTMLskills);      
+         $("#header:last").append(formattedHTMLskills);
     };
         var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
         var formattedLTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
@@ -105,8 +116,6 @@ var work = {
           var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[i].title);
           var formattedEmployerTitle = formattedEmployer + formattedTitle;
           $(".work-entry:last").append(formattedEmployerTitle);
-         var formattedjobLocation = HTMLschoolLocation.replace("%data%", work.jobs[i].location);
-          $(".work-entry:last").append(formattedjobLocation);
           var formattedDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
           $(".work-entry:last").append(formattedDates)
           var formatttedDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
